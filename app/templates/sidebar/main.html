@@ -1,0 +1,131 @@
+<div id="u-left-panel" class="u-left-panel16">
+        <div class="panel-user-wrapper style1">
+            <div class="panel-user">
+                <img src="{{ url_for('static', filename='img/user.jpg') }}" alt="user-image" />
+            </div>
+            <div class="panel-user-name">
+                JOHNNY BRAVO
+            </div>
+        </div>
+        <div id="u-left-menu">
+            <ul class="left-menu-wrapper list-unstyled">
+                <li class="left-menu-parent left-menu-active">
+                    <a href="{{ url_for('dashboard.index') }}">
+                        <span class="left-menu-link-icon">
+                            <i class="fa fa-dashboard"></i>
+                        </span>
+                        <span class="left-menu-link-info">
+                            <span class="link-name">DASHBOARD</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="left-menu-parent">
+                    <a href="#">
+                        <span class="left-menu-link-icon">
+                            <i class="fa fa-shopping-cart"></i>
+                        </span>
+                        <span class="left-menu-link-info">
+                            <span class="link-name">VENDAS</span>
+                            <span class="link-state"></span>
+                        </span>
+                    </a>
+                    <ul class="left-menu-sub list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);" data-content-location="view/test.html">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Los Angels</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" data-content-location="view/test.html">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Las Vegas</span>
+                                    <span class="link-badge badge badge-green">Cool</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="left-menu-parent">
+                    <a href="#">
+                        <span class="left-menu-link-icon">
+                            <i class="fa fa-pencil-square-o"></i>
+                        </span>
+                        <span class="left-menu-link-info">
+                            <span class="link-name">COMPRAS</span>
+                            <span class="link-state"></span>
+                        </span>
+                    </a>
+                    <ul class="left-menu-sub list-unstyled">
+                        <li>
+                            <a href="{{ url_for('compras.listaProdutosEstoqueBaixo') }}">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Estoque Baixo</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="left-menu-parent">
+                    <a href="#">
+                        <span class="left-menu-link-icon">
+                            <i class="fa fa-archive"></i>
+                        </span>
+                        <span class="left-menu-link-info">
+                            <span class="link-name">ESTOQUE</span>
+                            <span class="link-state"></span>
+                        </span>
+                    </a>
+                    <ul class="left-menu-sub list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);" data-content-location="view/test.html">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Los Angels</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" data-content-location="view/test.html">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Las Vegas</span>
+                                    <span class="link-badge badge badge-green">Cool</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="left-menu-parent">
+                    <a href="#">
+                        <span class="left-menu-link-icon">
+                            <i class="fa fa-credit-card"></i>
+                        </span>
+                        <span class="left-menu-link-info">
+                            <span class="link-name">FINANCEIRO</span>
+                            <span class="link-state"></span>
+                        </span>
+                    </a>
+                    <ul class="left-menu-sub list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);" data-content-location="view/test.html">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Los Angels</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" data-content-location="view/test.html">
+                                <span class="left-menu-link-info">
+                                    <span class="link-name">Las Vegas</span>
+                                    <span class="link-badge badge badge-green">Cool</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul><!--Main ul-->
+        </div>
+    </div>

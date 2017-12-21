@@ -1,0 +1,34 @@
+<div class="col-xs-12">
+    <div class="row tile_count">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-arrow-up"></i> Notas Faturadas</span>
+            <div class="count">{{ qtdNotas.dia }}</div>
+            <span class="count_bottom"><i class="green">Mês: </i> {{ qtdNotas.mes }}</span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-line-chart"></i> Total de Vendas</span>
+            <div class="count">{{ valVendido.dia }}</div>
+            <span class="count_bottom"><i class="green">Mês: </i> {{ valVendido.mes }}</span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-money"></i> Lucratividade</span>
+            <div class="count green">{{ lucratividade.dia }}</div>
+            <span class="count_bottom"><i class="green">Mês: </i> {{ lucratividade.mes }}</span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-level-up"></i> Contas a Receber</span>
+            <div class="count">{{ receber.dia }}</div>
+            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>Mês: </i> {{ receber.mes }}</span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-level-down"></i> Contas a Pagar</span>
+            <div class="count">{{ pagar.dia }}</div>
+            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>Mês: </i> {{ pagar.mes }}</span>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-cube"></i> Estoque Baixo A</span>
+            <div class="count"> {{ estoqueBaixo.todos }}</div>
+            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>Zerados: </i> {{ estoqueBaixo.zerados }}</span>
+        </div>
+    </div>
+</div>

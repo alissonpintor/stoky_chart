@@ -1,0 +1,17 @@
+.files-structure {
+	list-style: none !important;
+}
+
+.files-structure li {
+	list-style: none !important;
+}
+
+.files-structure .folder:before {
+	font-family: fontAwesome;
+	content: '\f07b';
+	color: #21759B;
+	font-size: 16px;
+	margin-right: 5px;
+}
+
+/*open f07c*/

@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="col-xs-12 col-md-12" style="margin-bottom: 15px">
+    <div class="ultra-feature-container">
+        <h3>Produtos com Estoque Abaixo do Mínimo</h3>
+        <form action="{{ url_for('compras.listaProdutosEstoqueBaixo') }}" method="POST">
+            {{ form.csrf_token }} {{ form.tipoGiro }} {{ form.zerados }} {{ form.submit }}
+        </form>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    <div class="ultra-feature-container">
+        {% if produtos %}
+        <p><b>Quantidade de Produtos na Lista:</b> {{ produtos.count() }}</p>
+        {% endif %}
+
+        <div style="margin-bottom: 15px">
+            <table
+                id="mytable"
+                class="table" 
+                data-toggle="table"
+                data-detail-view="true"
+                data-detail-formatter="expandTable"
+                data-pagination="true">
+                <thead>
+                    <tr>
+                        <th data-sortable="true">Fabricante</th>
+                        <th data-sortable="true">Total</th>
+                        <th data-sortable="true">Zerados</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if marcas %} 
+                    {% for marca in marcas %}
+                    <tr>
+                        <td>{{ marca.fabricante|title() }}</td>
+                        <td>{{ marca.total }}</td>
+                        <td>{{ marca.zerados }}</td>
+                    </tr>
+                    {% endfor %} 
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %} 
+
+{% block scripts %}
+<script>
+    var $table = $('#mytable');
+
+    var data = {{ produtosToJson|tojson }};
+
+    function expandTable(index, row) {
+
+        columns = [
+            { field: 'id_subproduto', title: 'Cod.' },
+            { field: 'descricao', title: 'Descrição' },
+            { field: 'qtd_atual', title: 'Saldo Atual' },
+            { field: 'qtdMinima', title: 'Estoque Mínimo' }
+        ]
+
+        var result = row[0].toLowerCase();
+
+        var data_user = []
+        var produtos = data[result]
+        
+        $.each(produtos, function (index, produto) {
+
+            data_user.push({
+                'id_subproduto': produto['id_subproduto'],
+                'descricao': produto['descricao'],
+                'qtd_atual': parseInt(produto['qtd_atual']),
+                'qtdMinima': produto['qtdMinima'],
+            })
+
+        })
+
+        var el = $(document.createElement('table'))
+        $(el).bootstrapTable({
+            dataClasses: 'table table-no-bordered',
+            columns: columns,
+            data: data_user,
+            rowStyle: rowStyle
+        });
+        return el;
+    }
+
+    function rowStyle(row, index) {
+        var saldo = parseInt(row['qtd_atual']);
+
+        if ( saldo === 0 ) {
+            
+            return {
+                classes: "text-muted danger"
+            }
+        }
+
+        return {
+            classes: "text-muted"
+        }
+    }
+</script> 
+{% endblock %}

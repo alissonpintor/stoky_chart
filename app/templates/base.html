@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Estilos CSS -->
+    {% assets "css" %}
+    <link href="{{ ASSET_URL }}" rel="stylesheet" type="text/css">
+    {% endassets %}
+</head>
+<body>
+    <div id="u-app-wrapper" class="panel-fixed">
+        <!-- Menu do Topo -->
+        {% include 'topbar/main.html' %}
+
+        <!-- Menu Lateral -->
+        {% include 'sidebar/main.html' %}
+        
+        <!-- Conteudo-->
+        <div class="content-wrapper">
+            <div class="content-panel">
+                {% block content %}
+                {% endblock %}
+                
+                <div class="col-xs-12" style="margin-bottom: 10px">
+                    <div class="ultra-feature-container">
+                        <p>Stoky distribuidora</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts JS minificados -->
+        {% assets "js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+
+        {% block scripts %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<!--Title-->
+	<title>Ultra Navigation</title>
+
+	<!--Meta-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="author" content="admin">
+	
+	<!--All CSS goes here-->
+	<!--BootStrap-->
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+
+	<!--Switchery-->
+	<link href="css/switchery.css" rel="stylesheet" type="text/css" media="all"/>
+
+	<!--Switchery-->
+	<link href="css/prettify.css" rel="stylesheet" type="text/css" media="all"/>
+
+	<!--Fonts-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css' />
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+	<!--ULTRA-->
+	<link href="css/ultra.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+	<div id="u-app-wrapper">
+		<div id="u-topbar">
+			<div class="title">
+				Ultra<br />
+				<span class="title-sub">Navigation</span>
+			</div>
+			<span class="left-panel-toggle">
+				<i class="fa fa-bars"></i>
+			</span>
+			<ul class="topbar-button list-unstyled">
+				<li class="message-btn">
+					<a href="javascript:void(0);"><i class="fa fa-envelope-o"></i><em class="em-blue"></em></a>
+				</li>
+				<li class="notify-btn">
+					<a href="javascript:void(0);"><i class="fa fa-bell-o"></i><em class="em-orange"></em></a>
+				</li>
+			</ul>
+			<ul class="topbar-user list-unstyled">
+				<li class="dropdown">
+					<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="badge badge-gray link-badge badge-user">7</span>
+						<span class="topbar-username">BRAVO<i class="fa fa-angle-down"></i></span>
+						<span class="topbar-userimage"><img src="img/user.jpg" alt="user-image" /></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="javascript:void(0);">
+								My Profile
+							</a>
+							<a href="javascript:void(0);">
+								Mailbox
+							</a>
+							<a href="javascript:void(0);">
+								New Events
+							</a>
+							<a href="javascript:void(0);">
+								Sign out
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="u-left-panel">
+			<div class="panel-user-wrapper style1">
+				<div class="panel-user">
+					<img src="img/user.jpg" alt="user-image" />
+				</div>
+				<div class="panel-user-name">
+					JOHNNY BRAVO
+				</div> <br />
+				<div class="btn-group btn-group-xs panel-user-option">
+					<button type="button" class="btn btn-primary"><i class="fa fa-cog"></i></button>
+					<button type="button" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
+					<button type="button" class="btn btn-primary"><i class="fa fa-sign-out"></i></button>
+				</div>
+			</div>
+			<div id="u-left-menu">
+				<ul class="left-menu-wrapper list-unstyled">
+					
+				</ul><!--Main ul-->
+			</div>
+		</div>
+		<div class="content-wrapper">
+			<div class="content-panel content-shrink">
+				<div class="col-xs-12">
+<pre class="prettyprint linenums">
+{
+	"ultra": [
+    	{
+	    	"name": "DASHBOARD",
+	      	"link": "javascript:void(0);",
+	      	"linkIcon": "fa fa-home",
+	      	"id": 1,
+	      	"pid": 0
+    	},
+    	{
+    		"name": "4 MENU LEVELS",
+	      	"link": "#",
+	      	"linkIcon": "fa fa-arrows",
+	      	"id": 2,
+	      	"pid": 0
+    	},
+    	{
+    		"name": "LEVEL 2",
+	      	"link": "#",
+	      	"id": 21,
+	      	"pid": 2
+    	},
+    	{
+    		"name": "LEVEL 3",
+	      	"link": "#",
+	      	"id": 211,
+	      	"pid": 21
+    	},
+    	{
+    		"name": "LEVEL 4",
+	      	"link": "javascript:void(0);",
+	      	"id": 2111,
+	      	"pid": 211
+    	},
+    	{
+    		"name": "LEVEL 3",
+	      	"link": "#",
+	      	"id": 212,
+	      	"pid": 21
+    	},
+    	{
+    		"name": "LEVEL 4",
+      		"link": "javascript:void(0);",
+      		"id": 2121,
+      		"pid": 212
+    	},
+    	{
+    		"name": "GRAPHS",
+      		"link": "#",
+      		"linkIcon": "fa fa-area-chart",
+      		"id": 3,
+      		"pid": 0
+    	},
+    	{
+    		"name": "Flot Graphs",
+      		"link": "#",
+      		"id": 31,
+      		"pid": 3
+    	},
+    	{
+    		"name": "Line Variant",
+      		"link": "javascript:void(0);",
+      		"id": 311,
+      		"pid": 31
+    	},
+    	{
+    		"name": "Live Statistics",
+      		"link": "javascript:void(0);",
+      		"id": 312,
+      		"pid": 31
+    	},
+    	{
+    		"name": "Area Variant",
+      		"link": "javascript:void(0);",
+      		"id": 313,
+      		"pid": 31
+    	},
+    	{
+    		"name": "Morris Graphs",
+      		"link": "javascript:void(0);",
+      		"id": 32,
+      		"pid": 3
+    	},
+    	{
+    		"name": "Sparklines",
+      		"link": "javascript:void(0);",
+      		"id": 33,
+      		"pid": 3
+    	},
+    	{
+    		"name": "PROFILE",
+      		"link": "javascript:void(0);",
+      		"linkIcon": "fa fa-user",
+      		"id": 4,
+      		"pid": 0
+    	}
+  	]
+}
+</pre> 
+				</div>
+				<div class="col-xs-12">
+					<div class="ultra-feature-container">
+						<div class="row">
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-mobile"></i></span>
+									<span class="feature-text">RESPONSIVE (BOOTSTRAP COMPATIBLE)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-outdent"></i></span>
+									<span class="feature-text">COLLAPSIBLE SIDEBAR (ON TOGGLE)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-dropbox"></i></span>
+									<span class="feature-text">AWESOME LOOKS (5 SKINS & COLORS)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-expand"></i></span>
+									<span class="feature-text">WIDE VIEW SUPPORT (FULLSCREEN SIDEBAR)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-angellist"></i></span>
+									<span class="feature-text">VECTOR ICONS (Font Awesome 4.3.0 ICON SET)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-hand-o-up"></i></span>
+									<span class="feature-text">SHOW-ON-HOVER MODE (HOVER LEFT-MENU)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-align-justify"></i></span>
+									<span class="feature-text">FIXED MENU (SLIMSCROLL INTEGRATED)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-align-justify"></i></span>
+									<span class="feature-text">CONTENT STYLES (SHRINK, PUSH, OVERLAY MODE)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-stumbleupon"></i></span>
+									<span class="feature-text">JQUERY UI ANIMATIONS (DROP, EXPLODE, ETC..)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-delicious"></i></span>
+									<span class="feature-text">OFF-CANVAS READY (USING OPTIONS)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-support"></i></span>
+									<span class="feature-text">COMPLETE SUPPORT (ASK ANYTHING)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-align-right"></i></span>
+									<span class="feature-text">RIGHT VIEW SETTINGS (INCLUDES BASIC RTL)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-code"></i></span>
+									<span class="feature-text">MODULAR LESS FILES (CREATE YOUR OWN)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-th-large"></i></span>
+									<span class="feature-text">METRO VARIATION (UNIQUE METRO SKIN)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-file-code-o"></i></span>
+									<span class="feature-text">VERY LIGHT WEIGHT (&lt;15KB .JS & &lt;10KB .CSS)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-tasks"></i></span>
+									<span class="feature-text">HORIZONTAL MODE (EXPANDED + COLLAPSED)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-cogs"></i></span>
+									<span class="feature-text">FLEXIBLE OPTIONS (CUSTOMIZE AS YOU LIKE)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-bolt"></i></span>
+									<span class="feature-text">DOCUMENTATION (GET STARTED IN 5 MINUTES)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-plus"></i></span>
+									<span class="feature-text">COOL TOPBAR (FULLY CUSTOMIZED SKINS)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-chain"></i></span>
+									<span class="feature-text">FREE UPDATES (FULLY CUSTOMIZED SKINS)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-sort-amount-desc"></i></span>
+									<span class="feature-text">UNLIMITED SUB-LEVELS (NO LIMIT HERE)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-toggle-on"></i></span>
+									<span class="feature-text">BOXED LAYOUT (USE YOUR BACKGROUND)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-rocket"></i></span>
+									<span class="feature-text">JQUERY AJAX SUPPORT (+ AUTO HASHCHANGE)</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4 col-md-3">
+								<div class="ultra-feature">
+									<span class="feature-icon"><i class="fa fa-edit"></i></span>
+									<span class="feature-text">FULLY ORGANIZED STRUCTURE (EASY TO EDIT)</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--All Startup Scripts are placed here-->
+	<!--jQuery-->
+	<script src="js/lib/jquery.min.js" type="text/javascript"></script>
+
+	<!--Resizer-->
+	<script src="js/slimscroll/resizer.js" type="text/javascript"></script>
+
+	<!--jQuery UI-->
+	<script src="js/lib/jquery-ui.min.js" type="text/javascript"></script>
+
+	<!--Pr-->
+	<script src="js/prettify/prettify.js" type="text/javascript"></script>
+
+	<!--jQuery UI-->
+	<script src="js/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+
+	<!--Switchery-->
+	<script src="js/switchery/switchery.min.js" type="text/javascript"></script>
+
+	<!--Bootstrap-->
+	<script src="js/lib/bootstrap.min.js" type="text/javascript"></script>
+
+	<!--ULTRA-->
+	<script src="js/navigation/ultra.js" type="text/javascript"></script>
+
+	<!--Init JS-->
+	<script src="js/custom/json.js" type="text/javascript"></script>
+</body>
+</html>

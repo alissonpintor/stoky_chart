@@ -1,0 +1,36 @@
+<div class="col-xs-12">
+	<div class="alert alert-info">
+		<h3>PROFILE PAGE</h3>
+		<ol>
+			<li>Just provide <code>data-content-location</code> and place <code>data-target="ajax"</code> to create your own AJAX link.
+			</li>
+			<li>Look at address bar above. The content after # is the page location.</li>
+			<li>Fully configurable AJAX options with functions.</li>
+			<li>More info is given is documentation and dashboard page.</li>
+		</ol>
+	</div>
+</div>
+<div class="col-xs-12">
+<pre class="prettyprint linenums">
+// Menu Init
+$('.left-menu-wrapper').ultraMenu({
+
+    //Panel AJAX Settings
+    ajaxLoad : true,
+    ajaxContainer : '.content-panel',
+    hashUpdate: true,
+
+    // Collapse Panel ON/OFF
+    collapsePanel: true,
+
+    // Panel Width Settings
+    panelWidth: 240,
+    collapsePanelWidth: 50,
+
+    // JS based Offcanvas Effect
+    offCanvas: true,
+    offCanvasSpeed: 220,
+    offCanvasClass: 'offcanvas-mode'
+});
+</pre> 
+</div>

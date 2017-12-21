@@ -1,0 +1,566 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ultra Navigation</title>
+  
+  <meta name="description" content="It is an awesome plugin (Description)">
+  <meta name="author" content="Naveet Kumar">
+  <meta name="copyright" content="Clutch Widgets">
+  <meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+  <meta name="date" content="2014-10-20T00:00:00+02:00">
+  
+  <link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+  <link href="assets/font/font-awesome.min.css" rel="stylesheet">
+  <link href="assets/code-prettify/prettify.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/custom.css" media="all">
+  <link rel="stylesheet" href="assets/css/bootstrap.css" media="all">
+  
+  <script src="assets/js/jquery.js"></script>
+  
+  <script src="assets/js/jquery.scrollTo.js"></script>
+  <script src="assets/js/jquery.easing.js"></script>
+  
+  <script>document.createElement('section');var duration='500',easing='swing';</script>
+  <script src="assets/js/script.js"></script>
+  
+  <style>
+    html{background-color:#EEEEEE;color:#383838;background-image:url(assets/images/image_1.png);background-repeat:repeat;background-attachment:scroll;}
+    ::-moz-selection{background:#333636;color:#00DFFC;}
+    ::selection{background:#333636;color:#00DFFC;}
+    #documenter_sidebar #documenter_logo{background-image:url(assets/images/image_2.png);}
+    a{color:#008C9E;}
+    .btn {
+      border-radius:3px;
+    }
+    .btn-primary {
+        background-image: -moz-linear-gradient(top, #008C9E, #006673);
+        background-image: -ms-linear-gradient(top, #008C9E, #006673);
+        background-image: -webkit-gradient(linear, 0 0, 0 008C9E%, from(#343838), to(#006673));
+        background-image: -webkit-linear-gradient(top, #008C9E, #006673);
+        background-image: -o-linear-gradient(top, #008C9E, #006673);
+        background-image: linear-gradient(top, #008C9E, #006673);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008C9E', endColorstr='#006673', GradientType=0);
+        border-color: #006673 #006673 #bfbfbf;
+        color:#FFFFFF;
+    }
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary.active,
+    .btn-primary.disabled,
+    .btn-primary[disabled] {
+      border-color: #008C9E #008C9E #bfbfbf;
+      background-color: #006673;
+    }
+    hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+    #documenter_sidebar, #documenter_sidebar ul a{background-color:#343838;color:#FFFFFF;}
+    #documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #494F4F;-moz-text-shadow:1px 1px 0px #494F4F;text-shadow:1px 1px 0px #494F4F;}
+    #documenter_sidebar ul{border-top:1px solid #212424;}
+    #documenter_sidebar ul a{border-top:1px solid #494F4F;border-bottom:1px solid #212424;color:#FFFFFF;}
+    #documenter_sidebar ul a:hover{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+    #documenter_sidebar ul a.current{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+    #documenter_copyright{display:block !important;visibility:visible !important;}
+    pre {
+      white-space: pre-wrap;
+    }
+    .table {
+      background-color: white;
+    }
+  </style>
+  
+</head>
+<body class="documenter-project-plugin">
+  <div id="documenter_sidebar">
+    <a href="#documenter_cover" id="documenter_logo"></a>
+    <ul id="documenter_nav">
+      <li><a class="current" href="#documenter_cover">Start</a></li>
+      <li><a href="#tc" title="tc">Table of Contents</a></li>
+      <li><a href="#overview" title="overview">Overview</a></li>
+      <li><a href="#template_structure" title="app_structure">Files Structure</a></li>
+      <li><a href="#configuration" title="Configuration">Configuration</a></li>
+      <li><a href="#markup" title="markup">Basic Markup</a></li>
+      <li><a href="#less_files" title="less_files">Using LESS Files</a></li>
+      <li><a href="#animation_cheatsheet" title="create_widget">Animation Cheatsheet</a></li>
+      <li><a href="#json" title="json">JSON Usage</a></li>
+      <li><a href="#changelog" title="changelog">ChangeLog</a></li>
+    </ul>
+    <div id="documenter_copyright">Copyright NaveetKumar 2015</div>
+  </div>
+  <div id="documenter_content">
+  <section id="documenter_cover">
+  <h1>Ultra Navigation</h1>
+  <hr>
+  <ul>
+  <li>created: 03/08/2015</li>
+  <li>latest update: 03/08/2015</li>
+  <li>by: Naveet Kumar</li>
+  <li>email: <a href="mailto:cyprus5contact@gmail.com">cyprus5contact@gmail.com</a></li>
+  </ul>
+  <p>
+    Hi there, thank you for purchasing this plugin. If you have any questions that are beyond the scope of this documentation, please feel free to contact me via the comment section or email me at above address.
+  </p>
+  </section>
+ 
+  <section id="tc">
+    <div class="page-header"><h3>Table of Contents</h3><hr class="notop"></div>
+    <ol>
+      <li>Overview</li>
+      <li>File Structure</li>
+      <li>Configuration</li>
+      <li>Basic Markup</li>
+      <li>CSS & JS Files</li>
+      <li>Using LESS Files</li>
+      <li>Animation Cheatsheet</li>
+      <li>ChangeLog</li>
+    </ol>
+  </section>
+  <section id="overview">
+    <div class="page-header"><h3>Overview</h3><hr class="notop"></div>
+    <p>
+      Thank you for purchasing a JS Plugin from our company. This manual will show you how to work with this plugin, how to edit it and use it. The plugin you ordered is a <strong>Navigation Plugin</strong>
+    </p>
+    <h5 class="text-primary"><strong>Features Include -</strong></h5>
+    <ol>
+      <li>Fully Responsive and Bootstrap compatible.</li>
+      <li>Collapsible sidebar on toggle click. You can also set your custom breakpoints.</li>
+      <li>Awesome looks (Available in 5 skins and colors).</li>
+      <li>Wide View support. (Full Screen sidebar)</li>
+      <li>Vector Icons (font Awesome 4.3.0 included)</li>
+      <li>Show on Hover Mode implemented with a single option.</li>
+      <li>Fixed Menu variation (Slimscroll Integrated).</li>
+      <li>Content Styles. (Shrink, Push and Overlay mode)</li>
+      <li>JQUERY UI Animations (Drop, Pulsate, Clip, Explode etc..)</li>
+      <li>OFF-CANVAS Ready (Using options)</li>
+      <li>Complete & Fast Support (Ask anything)</li>
+      <li>Right View settings (includes basic RTL)</li>
+      <li>Modular LESS Files (Create your own extension easily)</li>
+      <li>Metro Variation (Unique Metro skin)</li>
+      <li>Very light weight files  (< 15KB .JS & < 10KB .CSS)</li>
+      <li>Horizontal Mode (Expanded + Collapsed)</li>
+      <li>Flexible options (Customize as you like)</li>
+      <li>Documentation (Get Started in 5min)</li>
+      <li> + Cool topbar (Fully customized skins)</li>
+      <li>Unlimited Sublevels (No limit here)</li>
+      <li>Boxed Layout  (use your background)</li>
+      <li>JQUERY AJAX support (auto hash change)</li>
+      <li>In-built auto-focus mode</li>
+    </ol>
+  </section>
+  <section id="template_structure">
+    <div class="page-header"><h3>Files Structure</h3><hr class="notop"></div>
+    <p>
+      The following scheme displays the Ultra Navigation files structure. 
+    </p>
+    <ul class="files-structure">
+            <li class="folder level-1">"<strong>documentation</strong>" – contains documentation on template editing and installation.</li>
+            <li class="folder level-1">"<strong>plugin-files</strong>" – contains plugin main files.
+              <ul>
+                <li class="folder">"<strong>CSS</strong>" – contains unminified and minified css files.
+                </li>
+                <li class="folder">"<strong>JS</strong>" – contains main and plugins JS files.
+                </li>
+                <li class="folder">"<strong>Fonts</strong>" – contains font files.
+                </li>
+                <li class="folder">"<strong>LESS</strong>" – contains LESS files.
+                </li>
+                <li class="folder">"<strong>ajax-data</strong>" – contains data <code>.html</code> files.
+                </li>
+                <li class="folder">"<strong>img</strong>" – contains image files
+                </li>
+              </ul>
+            </li>
+            <li class="folder level-1">"<strong>demo-files</strong>" – contains live preview files.</li>
+        </ul>
+          
+  </section>
+  <section id="configuration">
+    <div class="page-header"><h3>Configuration (Default options)</h3><hr class="notop"></div>
+<pre class="prettyprint linenums">
+   options: {
+
+      // Global link parent selector
+      parent : 'li.left-menu-parent',
+          
+          // Link UP/DOWN sliding speed
+          slideSpeed : 250,
+
+          // Panel Toggle Btn selector
+          toggleBtn : '.left-panel-toggle',
+
+          // Panel Class selectors
+          // Panel SlideDown Class Add
+          activeClass : 'active-state',
+          // Closed link state
+          closeClass : 'fa fa-caret-right',
+          // Open link state
+          openClass : 'fa fa-caret-down',
+
+          //Scren Breakpoints
+          screen_xs: 768,
+
+          //  Panel AJAX Settings
+          ajaxLoad : false,
+          ajaxContainer : '.content-panel',
+          defaultURL: '#ajax-data/data1.html',
+
+          // Global Element +/- Classes
+          globalElement: '#u-app-wrapper',
+
+          // Collapse Panel ON/OFF
+          collapsePanel: false,
+          preCollapse: false,
+
+          // Panel Width Settings
+          panelWidth: 240,
+          collapsePanelWidth: 50,
+
+          // JS based Offcanvas Effect
+          offCanvas: false,
+          offCanvasSpeed: 200,
+          offCanvasClass: 'offcanvas-mode',
+
+          // Horizontal Mode
+          horizontal: false,
+          horizontalClass: 'panel-horizontal',
+
+          // Opacity Animation
+          animation: false,
+          animationType: 'opacity',
+          animationVar1: false,
+          animationVar2: false,
+          animationSpeed: 150,
+
+          // Auto Focus
+          focusOffset: -150,
+          autoFocus: false,
+          focusSpeed: 'slow',
+
+          // Wide Panel
+          wide: false,
+          wideClass: 'panel-wide',
+
+          // Show on hover
+          showHover: false,
+
+          // RTL Mode
+          rtl: false
+    }
+</pre>   
+  </section>
+  <section id="markup">
+    <div class="page-header"><h3>Basic Markup</h3><hr class="notop"></div>
+    <p>It contains the minimum markup for navigation.</p>
+    <div class="alert alert-warning">
+      <strong>NOTE:</strong><br/>
+      1. Only first <code>ul</code> should have class<code>left-menu-sub</code>.
+    </div>
+<pre class="prettyprint linenums">
+&lt;div id=&quot;u-left-panel&quot;&gt;
+  &lt;div id=&quot;u-left-menu&quot;&gt;
+    &lt;ul class=&quot;left-menu-wrapper list-unstyled&quot;&gt;
+      &lt;li class=&quot;left-menu-parent left-menu-active&quot;&gt;
+        &lt;a href=&quot;javascript:void(0);&quot;&gt;
+          &lt;span class=&quot;left-menu-link-icon&quot;&gt;
+            &lt;i class=&quot;fa fa-home&quot;&gt;&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;span class=&quot;left-menu-link-info&quot;&gt;
+            &lt;span class=&quot;link-name&quot;&gt;DASHBOARD&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;left-menu-parent&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          &lt;span class=&quot;left-menu-link-icon&quot;&gt;
+            &lt;i class=&quot;fa fa-ambulance&quot;&gt;&lt;/i&gt;
+          &lt;/span&gt;
+          &lt;span class=&quot;left-menu-link-info&quot;&gt;
+            &lt;span class=&quot;link-name&quot;&gt;HEALTH CENTER&lt;/span&gt;
+            &lt;span class=&quot;link-state&quot;&gt;&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;ul class=&quot;left-menu-sub list-unstyled&quot;&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;javascript:void(0);&quot;&gt;
+              &lt;span class=&quot;left-menu-link-info&quot;&gt;
+                &lt;span class=&quot;link-name&quot;&gt;Los Angels&lt;/span&gt;
+              &lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;javascript:void(0);&quot;&gt;
+              &lt;span class=&quot;left-menu-link-info&quot;&gt;
+                &lt;span class=&quot;link-name&quot;&gt;Las Vegas&lt;/span&gt;
+                &lt;span class=&quot;link-badge badge badge-green&quot;&gt;Cool&lt;/span&gt;
+              &lt;/span&gt;
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+  </section>
+   <section id="less_files">
+    <div class="page-header"><h3>Using LESS Files</h3><hr class="notop"></div>
+    <h4 class="text-primary"><strong>Getting Started</strong></h4>
+      <p>
+        Less is a CSS pre-processor, meaning that it extends the CSS language, adding features that allow variables, mixins, functions and many other techniques that allow you to make CSS that is more maintainable, themable and extendable.
+      </p>
+      <p>
+        Less runs inside Node, in the browser and inside Rhino. There are also many 3rd party tools that allow you to compile your files and watch for changes.
+      </p>
+    <h4 class="text-primary"><strong>Placing LESS and JS Files</strong></h4>
+<pre class="prettyprint linenums">
+  &lt;!--LESS Config--&gt;
+  &lt;!--Widgets LESS--&gt;
+  &lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;less/ultra_sidebar.less&quot;&gt;
+  &lt;!--LESS JS--&gt;
+  &lt;script src=&quot;less/less-1.4.1.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</pre>
+    <div class="alert alert-info">
+      An example is shown in main template with name index-less.html<br />
+      For more information, go to <a href="http://lesscss.org">lesscss.org</a> 
+    </div>
+  </section>
+  <section id="animation_cheatsheet">
+    <div class="page-header"><h3>Animation Cheatsheet</h3><hr class="notop"></div>
+    <div class="alert alert-warning">
+      NA - Not applicable.<br/>
+      Default values are shown in brackets following.
+    </div>
+    <!-- TABLE FOR JS ANIMATIONS -->
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>animationType</th>
+                <th>animationVar1(default)</th>
+                <th>animationVar2(default)</th>
+                <th>animationSpeed</th>
+                <th>comment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>explode</td>
+                <td>pieces(16)</td>
+                <td>NA</td>
+                <td>slow</td>
+                <td>var1 is perfect square</td>
+              </tr>
+              <tr>
+                <td>drop</td>
+                <td>direction(left)</td>
+                <td>NA</td>
+                <td>slow</td>
+                <td>var1 values - up, down, left, right</td>
+              </tr>
+              <tr>
+                <td>transfer</td>
+                <td>className</td>
+                <td>to</td>
+                <td>500</td>
+                <td>var1 - class transfer element will receive<br/>var2 - selector, element to transfer to</td>
+              </tr>
+              <tr>
+                <td>highlight</td>
+                <td>color(#ffff99)</td>
+                <td>NA</td>
+                <td>slow</td>
+                <td>var1 - background used in animation</td>
+              </tr>
+              <tr>
+                <td>puff</td>
+                <td>percent(150)</td>
+                <td>NA</td>
+                <td>slow</td>
+                <td>var1 - The percentage to scale to</td>
+              </tr>
+              <tr>
+                <td>clip</td>
+                <td>direction(horizontal)</td>
+                <td>NA</td>
+                <td>slow</td>
+                <td>var1 - Plain for clip effect</td>
+              </tr>
+              <tr>
+                <td>fold</td>
+                <td>size(50%)</td>
+                <td>horizFirst(false)</td>
+                <td>slow</td>
+                <td>var1(i,s) - folded element size<br/>var2 - horizontal first</td>
+              </tr>
+              <tr>
+                <td>bounce</td>
+                <td>distance(55)</td>
+                <td>times(5)</td>
+                <td>slow</td>
+                <td>var1(px) - distance of largest bounce<br/>var2 - No of bouncing times</td>
+              </tr>
+              <tr>
+                <td>shake</td>
+                <td>distance(20)</td>
+                <td>times(3)</td>
+                <td>slow</td>
+                <td>var1 - Distance to shake<br/>var2 - Times to shake.</td>
+              </tr>
+              <tr>
+                <td>pulsate</td>
+                <td>times(5)</td>
+                <td>NA</td>
+                <td>450</td>
+                <td>var1 - number of times of pulse</td>
+              </tr>
+              <tr>
+                <td>opacity</td>
+                <td>initial(0)</td>
+                <td>final(1.0)</td>
+                <td>600</td>
+                <td>var1 - initial opacity<br/>var2 - final opacity</td>
+              </tr>
+            </tbody>
+          </table>
+  </section>
+  <section id="json">
+    <div class="page-header"><h3>JSON Config</h3><hr class="notop"></div>
+    <div class="alert alert-info">
+      1. pid -> Parent ID, id -> Self id.<br>
+      2. For links opening submenu, assing link = "#". <br>
+      3. For parent links, pid = 0.
+    </div>
+    JSON Example - <br>
+<pre class="prettyprint linenums">
+  {
+  "ultra": [
+      {
+        "name": "DASHBOARD",
+        "link": "javascript:void(0);",
+        "linkIcon": "fa fa-home",
+        "id": 1,
+        "pid": 0
+      },
+      {
+        "name": "4 MENU LEVELS",
+        "link": "#",
+        "linkIcon": "fa fa-arrows",
+        "id": 2,
+        "pid": 0
+      },
+      {
+        "name": "LEVEL 2",
+        "link": "#",
+        "id": 21,
+        "pid": 2
+      },
+      {
+        "name": "LEVEL 3",
+        "link": "#",
+        "id": 211,
+        "pid": 21
+      },
+      {
+        "name": "LEVEL 4",
+        "link": "javascript:void(0);",
+        "id": 2111,
+        "pid": 211
+      },
+      {
+        "name": "LEVEL 3",
+        "link": "#",
+        "id": 212,
+        "pid": 21
+      },
+      {
+        "name": "LEVEL 4",
+          "link": "javascript:void(0);",
+          "id": 2121,
+          "pid": 212
+      },
+      {
+        "name": "GRAPHS",
+          "link": "#",
+          "linkIcon": "fa fa-area-chart",
+          "id": 3,
+          "pid": 0
+      },
+      {
+        "name": "Flot Graphs",
+          "link": "#",
+          "id": 31,
+          "pid": 3
+      },
+      {
+        "name": "Line Variant",
+          "link": "javascript:void(0);",
+          "id": 311,
+          "pid": 31
+      },
+      {
+        "name": "Live Statistics",
+          "link": "javascript:void(0);",
+          "id": 312,
+          "pid": 31
+      },
+      {
+        "name": "Area Variant",
+          "link": "javascript:void(0);",
+          "id": 313,
+          "pid": 31
+      },
+      {
+        "name": "Morris Graphs",
+          "link": "javascript:void(0);",
+          "id": 32,
+          "pid": 3
+      },
+      {
+        "name": "Sparklines",
+          "link": "javascript:void(0);",
+          "id": 33,
+          "pid": 3
+      },
+      {
+        "name": "PROFILE",
+          "link": "javascript:void(0);",
+          "linkIcon": "fa fa-user",
+          "id": 4,
+          "pid": 0
+      }
+    ]
+}
+</pre>    
+  </section>
+  <section id="changelog">
+    <div class="page-header"><h3>ChangeLog</h3><hr class="notop"></div>
+    <h4 class="text-primary">Version 1.3</h4>
+    <ul>
+      <li>Added custom scrollbar.</li>
+      <li>Fixed screen width - 768px bug.</li>
+      <li>Plugin JS improved.</li>
+    </ul>
+    <h4 class="text-primary">Version 1.2</h4>
+    <ul>
+      <li>Added dynamic JSON options</li>
+      <li>Fixed :horizonal Icon bug in demo files.</li>
+      <li>Docs update for JSON options.</li>
+    </ul>
+    <h4 class="text-primary">Version 1.1</h4>
+    <ul>
+      <li>Added Boxed layout backgrounds</li>
+       <li>Minor JS Fixes.</li>
+    </ul>
+    <h4 class="text-primary">Version 1.0</h4>
+    <ul>
+      <li>Initial Release</li>
+    </ul>
+  </section>
+</div>
+   <script src="assets/code-prettify/prettify.js"></script>
+
+</body>
+</html>
