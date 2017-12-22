@@ -6,6 +6,7 @@ css = Bundle(
     'css/bootstrap-table.min.css',
     'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700',
     'css/demo.min.css',
+    'css/login.css',
     'css/dashboard.css'
 )
 

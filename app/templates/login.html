@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snippet - Bootsnipp.com</title>
+
+    <!-- Estilos CSS -->
+    {% assets "css" %}
+    <link href="{{ ASSET_URL }}" rel="stylesheet" type="text/css">
+    {% endassets %}
+    
+    <body style="">
+        <div class="login">
+            <h1>Login</h1>
+            <form method="post">
+                <input type="text" name="u" placeholder="Usuário" required="required">
+                <input type="password" name="p" placeholder="Senha" required="required">
+                <button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
+            </form>
+            <br>
+        </div>
+        <!-- Scripts JS minificados -->
+        {% assets "js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+        {% endassets %}
+
+    </body>
+
+</html>
