@@ -21,13 +21,20 @@
         <h2 class="error-title font-bold">Oops! Um erro Interno no Servidor foi detectado.</h2>
 
         <div class="error-desc">
-            Sorry, but the page you are looking for was either not found or does not exist.
-            <br> Try refreshing the page or click the button below to go back to the Homepage.
+            Desculpe, A página que você está tentanto acessar possui algum problema.
+            <br> Tente novamente mais tarde ou contante o administrador do sistema.
+            
+            <div class="error-message">
+                <p><b>ERRO:</b> {{ error.class }}</p>
+                <p>{{ error.message }}</p>
+                <p><b>Endpoint:</b> {{ error.endpoint }}</p>
+            </div>
+            
             <div>
                 <br>
                 <!-- <a class=" login-detail-panel-button btn" href="http://vultus.de/"> -->
-                <a href="/" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-home"></span> Ir para o Dashboard</a>
+                <a href="{{ url_for('dashboard.index') }}" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-home"></span> Ir para o Inicial</a>
             </div>
         </div>
     </div>

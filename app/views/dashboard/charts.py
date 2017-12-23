@@ -28,23 +28,27 @@ def getHalfPie(title, data):
 
     return gauge.render_data_uri()
 
-def getHorizontalBar(title, data):
+def getHorizontalBar(title, data, isMobile=False):
+    barType = pl.HorizontalBar if isMobile else pl.Bar
+    
     config = pl.Config()
     config.legend_at_bottom = True
     config.value_formatter = lambda x: locale.currency(x, grouping=True)
     config.legend_box_size = 26
-    # config.height = 1000
     config.style = getChartStyle()
 
-    bar_chart = pl.HorizontalBar(config)
-    bar_chart.title = title
+    if isMobile:
+        config.height = 1000
+
+    barChart = barType(config)
+    barChart.title = title
     if isinstance(data, dict):
         for key, value in data.items():
             nome = key.split()
             nome = '{} {}'.format(nome[0], nome[-1])
-            bar_chart.add(nome, value)
+            barChart.add(nome, value)
     
-    return bar_chart.render_data_uri()
+    return barChart.render_data_uri()
 
 
 def getChartStyle(screenWidth=1900):

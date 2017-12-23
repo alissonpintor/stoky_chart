@@ -6,6 +6,8 @@ class Config(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TEMPLATES_AUTO_RELOAD = True
+    UPLOAD_FOLDER = 'static/img/uploads'
+    ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 
 class DevelopmentConfig(Config):

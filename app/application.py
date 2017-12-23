@@ -18,13 +18,19 @@ def create_app():
     assets.register('css', css)
     assets.register('js', js)
 
+    # imports do core
+    from app.core.errorhandler import createErrorHandler
+    createErrorHandler(app)
+
     # Importa as Blueprints
     from app.views.index import bp
+    from app.views.account.views import account
     from app.views.dashboard.views import dashboard
     from app.views.compras.views import compras
 
     # Registra as Blueprints
     app.register_blueprint(bp, url_prefix='/')
+    app.register_blueprint(account, url_prefix='/account')
     app.register_blueprint(dashboard, url_prefix='/dashboard')
     app.register_blueprint(compras, url_prefix='/compras')
 
@@ -33,8 +39,12 @@ def create_app():
     from app.models.ciss import cadastros, compras
     from app.models.ciss import vendas, estoques
 
+    # Correção do erro de Conexão Perdida do SQLAlchemy
+    from app.core.sqlalchemyerror import sqlalchemyErrorHandler
+    
     # Cria o Banco de Dados
     with app.app_context():
         db.create_all(bind=None)
+        sqlalchemyErrorHandler(db)
 
     return app

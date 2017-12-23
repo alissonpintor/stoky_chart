@@ -12,6 +12,7 @@ from app.views.dashboard.data import getValMeta, getTotalContasReceberPeriodo
 from app.views.dashboard.data import getTotalContasPagarPeriodo, getProdutosPorQtdSaida
 from app.views.dashboard.data import getProdutosEstoqueBaixo
 
+import calendar
 import locale
 import datetime
 
@@ -21,8 +22,15 @@ dashboard = Blueprint('dashboard', __name__)
 
 @dashboard.route('/')
 def index():
+    isMobile = (request.headers.get('User-Agent').find('Mobile') > 0)
+    
     dataHoje = datetime.date.today()
-    dataInicioMes = datetime.date(year=dataHoje.year, month=dataHoje.month, day=1)
+    mes = dataHoje.month
+    ano = dataHoje.year
+    ultimoDiaMes = calendar.monthrange(ano, mes)[1]
+    
+    dataInicioMes = datetime.date(year=ano, month=mes, day=1)
+    dataFimMes = datetime.date(year=ano, month=mes, day=ultimoDiaMes)
 
     # Valore usados no Tiles.html
     lucroDia = getValLucroPeriodo(dataHoje)
@@ -32,6 +40,7 @@ def index():
         'mes': lucroMes
     }
 
+    # VERIFICADO
     vendasDia = getTotalVendido(dataHoje)
     vendasDia = locale.currency(vendasDia, grouping=True)
     vendasMes = getTotalVendido(dataInicioMes, dataFinal=dataHoje)
@@ -41,6 +50,7 @@ def index():
         'mes': vendasMes
     }
 
+    # VERIFICADO
     notasDia = getQtdadeNotas(dataHoje)
     notasMes = getQtdadeNotas('{}-{}-01'.format(dataHoje.year, dataHoje.month), dataFinal=dataHoje)
     qtdNotas = {
@@ -48,6 +58,7 @@ def index():
         'mes': notasMes
     }
 
+    # VERIFICADO
     receberDia = getTotalContasReceberPeriodo(dataHoje)
     receberDia = locale.currency(receberDia, grouping=True)
     receberMes = getTotalContasReceberPeriodo(dataInicioMes, dataHoje)
@@ -57,6 +68,7 @@ def index():
         'mes': receberMes
     }
 
+    # VERIFICADO
     pagarDia = getTotalContasPagarPeriodo(dataHoje)
     pagarDia = locale.currency(pagarDia, grouping=True)
     pagarMes = getTotalContasPagarPeriodo(dataInicioMes, dataHoje)
@@ -66,6 +78,7 @@ def index():
         'mes': pagarMes
     }
 
+    # VERIFICADO
     estoqueBaixoTipoA = getProdutosEstoqueBaixo(tipoGiro='A')
     estoqueBaixoTipoAZerados = getProdutosEstoqueBaixo(tipoGiro='A', somenteZerados=True)
     estoqueBaixo = {
@@ -73,29 +86,35 @@ def index():
         'zerados': estoqueBaixoTipoAZerados.count()
     }
 
-    # Valor Vendido por periodo    
+    # Valor Vendido por periodo
+    metaTitulo = "Não existe Meta cadastrada para o período"
+    maxValue = 1.0
+    vendas = getTotalVendido(dataInicioMes, dataFinal=dataFimMes) 
     meta = getValMeta(12)
-    metaTitulo = meta.descricao.capitalize()
-    maxValue = float(meta.valTotalMeta)
-    vendas = getTotalVendido(meta.dataInicial, dataFinal=meta.dataFinal)
+    if meta:
+        metaTitulo = meta.descricao.capitalize()
+        maxValue = float(meta.valTotalMeta)
+        vendas = getTotalVendido(meta.dataInicial, dataFinal=meta.dataFinal)
     gauge = getHalfPie(metaTitulo, {'Total': {'value': vendas, 'max_value': maxValue, 'label': maxValue}} )
 
     # Qtdade de Notas por periodo
     qtdNotasGauge = getHalfPie('Qtdade de Notas Faturadas', {'Qtdade': {'value': notasDia, 'max_value': 30000}})
 
     # Vendas Externas por periodo
-    vendas_externas = getVendasVendedores(tipo='E')
-    data = {}
-    for v in vendas_externas:
-        data[v.nome] = v.total    
-    bar_charts = getHorizontalBar('Vendas por Vendedores Externos', data)
+    # VERIFICADO
+    vendasExternas = getVendasVendedores(dataInicioMes, dataFimMes, tipo='E')
+    dataExternos = {}
+    for vendedor in vendasExternas:
+        dataExternos[vendedor.nome] = vendedor.total
+    barChartsExternos = getHorizontalBar('Vendas por Vendedores Externos', dataExternos, isMobile=isMobile)
 
     # Vendas Internas por periodo
-    vendas_internas = getVendasVendedores(tipo='I')
-    data_internas = {}
-    for v in vendas_internas:
-        data_internas[v.nome] = v.total
-    bar_charts_interno = getHorizontalBar('Vendas por Vendedores Internos', data_internas)
+    # VERIFICADO
+    vendasInternos = getVendasVendedores(dataInicioMes, dataFimMes, tipo='I')
+    dataInternos = {}
+    for vendedor in vendasInternos:
+        dataInternos[vendedor.nome] = vendedor.total
+    barChartsInternos = getHorizontalBar('Vendas por Vendedores Internos', dataInternos, isMobile=isMobile)
 
     meta_mes = locale.currency(maxValue, grouping=True)
     total_vendas = locale.currency(vendas, grouping=True)
@@ -107,8 +126,8 @@ def index():
     result = {
         'gauge': gauge,
         'notas': qtdNotasGauge,
-        'bar_charts': bar_charts,
-        'bar_charts_interno': bar_charts_interno,
+        'barChartsExternos': barChartsExternos,
+        'barChartsInternos': barChartsInternos,
         'total_vendas': total_vendas,
         'meta_mes': meta_mes,
         'qtdNotas': qtdNotas,

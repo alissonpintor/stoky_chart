@@ -19,6 +19,7 @@ from app.models.ciss.estoques import EstoqueAnalitico as Estoque
 locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
 
 
+# VERIFICADO
 def getTotalVendido(dataInicial, dataFinal=None):
     query = (db.func.sum(MetasVendas.val_venda) + db.func.sum(MetasVendas.val_devolucao)).label('total')
     vendas = db.session.query(query)
@@ -29,14 +30,15 @@ def getTotalVendido(dataInicial, dataFinal=None):
     else:
         vendas = vendas.filter(MetasVendas.dt_movimento == dataInicial).first()
 
-    return vendas.total
+    return vendas.total if vendas else 0.0
 
 
+# VERIFICADO
 def getQtdadeNotas(dataInicial, dataFinal=None):
     qtdNotas = MetasVendas.query
     if dataFinal:
         filtroPeriodo = MetasVendas.dt_movimento.between(dataInicial, dataFinal)
-        qtdNotas = qtdNotas.filter(filtroPeriodo)       
+        qtdNotas = qtdNotas.filter(filtroPeriodo)     
     else:
         qtdNotas = qtdNotas.filter(MetasVendas.dt_movimento == dataInicial)
     qtdNotas = qtdNotas.count()
@@ -44,11 +46,11 @@ def getQtdadeNotas(dataInicial, dataFinal=None):
     return qtdNotas
 
 
-def getVendasVendedores(tipo=None):
+def getVendasVendedores(dataInicial, dataFinal, tipo=None):
     query_total = (db.func.sum(MetasVendas.val_venda) + db.func.sum(MetasVendas.val_devolucao)).label('total')
     vendas_total = db.session.query(MetasVendas.id_vendedor, Vendedor.nome, query_total)
     
-    filter_periodo = (MetasVendas.dt_movimento.between('2017-12-01', '2017-12-30'))
+    filter_periodo = (MetasVendas.dt_movimento.between(dataInicial, dataFinal))
     vendas_total = vendas_total.filter(filter_periodo)
     vendas_total = vendas_total.filter(Vendedor.id_cli_for == MetasVendas.id_vendedor)
 
@@ -61,6 +63,7 @@ def getVendasVendedores(tipo=None):
     return vendas_total
 
 
+# VERIFICADO
 def getValLucroPeriodo(dataInicial, dataFinal=None):
     queryLucroTotal = (db.func.sum(MetasVendas.val_lucro)).label('valor')
     lucroPeriodo = db.session.query(queryLucroTotal)
@@ -70,11 +73,16 @@ def getValLucroPeriodo(dataInicial, dataFinal=None):
     else:
         lucroPeriodo = lucroPeriodo.filter(MetasVendas.dt_movimento == dataInicial)
     lucroPeriodo = lucroPeriodo.first()
-    lucroPeriodo = locale.currency(lucroPeriodo.valor, grouping=True)
+
+    if lucroPeriodo:
+        lucroPeriodo = locale.currency(lucroPeriodo.valor, grouping=True)
+    else:
+        lucroPeriodo = 0.0
     
     return lucroPeriodo
 
 
+# VERIFICADO
 def getValMeta(numMes, ano=datetime.date.today().year):
     dtInicioMeta = '{}-{}-01'.format(ano, numMes)
     meta = db.session.query(Metas.descricao,
@@ -90,6 +98,7 @@ def getValMeta(numMes, ano=datetime.date.today().year):
     return meta
 
 
+# VERIFICADO
 def getTotalContasReceberPeriodo(dataInicial, dataFinal=None):
     total = db.session.query(db.func.sum(Receber.valTitulo).label('valor'))
     if dataFinal:
@@ -99,9 +108,10 @@ def getTotalContasReceberPeriodo(dataInicial, dataFinal=None):
         total = total.filter(Receber.dtVencimento == dataInicial)
     total = total.first()
 
-    return total.valor
+    return total.valor if total else 0.0
 
 
+# VERIFICADO
 def getTotalContasPagarPeriodo(dataInicial, dataFinal=None):
     total = db.session.query(db.func.sum(Pagar.valTitulo).label('valor'))
     if dataFinal:
@@ -111,7 +121,7 @@ def getTotalContasPagarPeriodo(dataInicial, dataFinal=None):
         total = total.filter(Pagar.dtVencimento == dataInicial)
     total = total.first()
 
-    return total.valor
+    return total.valor if total else 0.0
 
 
 def getProdutosPorQtdSaida(dataInicial, dataFinal=None, limit=None):
@@ -171,6 +181,7 @@ def getTotalCompraClientes(dataInicial, dataFinal=None, limit=None, convertToLis
     return clientes
 
 
+# VERIFICADO
 def getProdutosEstoqueBaixo(tipoGiro=None, somenteZerados=False):
     produtos = db.session.query(SaldoProduto.id_subproduto)
 
