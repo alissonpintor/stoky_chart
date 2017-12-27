@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, session, request
+from flask_login import login_required
 import pygal as pl
 from pygal.style import CleanStyle, LightenStyle
 from pygal.style import Style
@@ -21,6 +22,7 @@ dashboard = Blueprint('dashboard', __name__)
 
 
 @dashboard.route('/')
+@login_required
 def index():
     isMobile = (request.headers.get('User-Agent').find('Mobile') > 0)
     

@@ -8,6 +8,13 @@ def createErrorHandler(app):
         return render_template('error-pages/error404.html'), 404
 
 
+def createErrorHandler(app):
+    # Views para tratar os erros
+    @app.errorhandler(401)
+    def pageNotFound(error):
+        return render_template('error-pages/error401.html'), 401
+
+
     # View para erros internos da aplicação
     @app.errorhandler(500)
     def internalServerError(error):

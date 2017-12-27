@@ -1,4 +1,6 @@
 # config.py
+
+
 class Config(object):
     """
     Common configurations
@@ -6,8 +8,9 @@ class Config(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TEMPLATES_AUTO_RELOAD = True
-    UPLOAD_FOLDER = 'static/img/uploads'
-    ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+    UPLOAD_FOLDER = '/home/alisson/www/projects/charts/uploads'
+    UPLOADS_DEFAULT_DEST = 'uploads'
+    UPLOADS_DEFAULT_URL = "http://192.168.104.37:5000/uploads"
 
 
 class DevelopmentConfig(Config):

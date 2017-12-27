@@ -15,6 +15,7 @@ js = Bundle(
     'js/resizer.js',
     'js/jquery-ui.min.js',
     'js/jquery.slimscroll.min.js',
+    'js/jquery.inputmask.min.js',
     'js/switchery.min.js',
     'js/bootstrap.min.js',
     'js/bootstrap-table.min.js',
@@ -24,6 +25,7 @@ js = Bundle(
     'js/ultra.js',
     'js/demo.js',
     'js/init.js',
+    'js/app_scripts.js',
     filters='jsmin',
     output='gen/packed.js'
 )

@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request
+from flask_login import login_required
 
 # Import de Formularios
 from app.views.compras.forms import FormEstoqueBaixo
@@ -11,6 +12,7 @@ compras = Blueprint('compras', __name__)
 
 
 @compras.route('/estoque-baixo', methods=['GET', 'POST'])
+@login_required
 def listaProdutosEstoqueBaixo():
     form = FormEstoqueBaixo()
     produtos = None

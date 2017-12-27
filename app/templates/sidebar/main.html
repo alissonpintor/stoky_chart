@@ -1,10 +1,10 @@
 <div id="u-left-panel" class="u-left-panel16">
         <div class="panel-user-wrapper style1">
             <div class="panel-user">
-                <img src="{{ url_for('static', filename='img/user.jpg') }}" alt="user-image" />
+                <img src="{{ image }}" alt="user-image" /> 
             </div>
             <div class="panel-user-name">
-                JOHNNY BRAVO
+                {{ current_user.firstName }}
             </div>
         </div>
         <div id="u-left-menu">

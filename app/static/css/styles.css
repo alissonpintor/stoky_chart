@@ -1,4 +1,17 @@
+.user-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #337ab7;
+    background-image: url('../img/uploads/alisson.jpeg');
+    background-clip: content-box;
+    background-size: cover;
+    padding: 5px;
+    border: 2px solid #337ab7;
+}
+
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
+    text-align: center;
 }
