@@ -1,7 +1,9 @@
 import pygal as pl
 from pygal.style import CleanStyle, LightenStyle
+from pygal.style import TurquoiseStyle
 from pygal.style import Style
 import locale
+import calendar
 
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
@@ -49,6 +51,32 @@ def getHorizontalBar(title, data, isMobile=False):
             barChart.add(nome, value)
     
     return barChart.render_data_uri()
+
+
+def getChartVendasAnoMes(valueList, isMobile=None):
+    config = pl.Config()
+    config.legend_at_bottom = True
+    config.fill = True
+    config.dots_size = 5
+    config.legend_at_bottom_columns = 3
+    config.value_formatter = lambda x: locale.currency(x, grouping=True)
+
+    style = CleanStyle(base_style=TurquoiseStyle)
+    if isMobile:
+        config.dots_size = 10
+        # style.value_font_size = 35
+        style.title_font_size = 35 
+        style.tooltip_font_size = 25 
+        style.font_family = 'googlefont:Barlow'
+
+    lineChart = pl.Line(config, style=style)
+    lineChart.title = ('Comparativo de Vendas Anual')
+    lineChart.x_labels = [mes.upper()[0:3] for mes in calendar.month_name[1:]]
+
+    for value in valueList:
+        lineChart.add(*value)
+    
+    return lineChart.render_data_uri()
 
 
 def getChartStyle(screenWidth=1900):

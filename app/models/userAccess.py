@@ -66,6 +66,21 @@ class User(UserMixin, db.Model):
         db.session.commit()
     
     @classmethod
+    def createValdecir(cls):
+        admin = cls()
+
+        admin.firstName = 'Valdecir'
+        admin.lastName = 'Pintor'
+        admin.email = 'valdecir@stoky.com.br'
+        admin.userName = 'valdecir'
+        admin.gender = 'M'
+        admin.password = '999825928'
+        admin.userImage = None
+
+        db.session.add(admin)
+        db.session.commit()
+
+    @classmethod
     def hasAdmin(cls):
         exist = cls.query.filter_by(userName='admin').first()
         return True if exist else False        

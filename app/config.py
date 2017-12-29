@@ -1,4 +1,6 @@
 # config.py
+import os
+projectPath = os.path.dirname(os.path.abspath(__name__))
 
 
 class Config(object):
@@ -8,9 +10,11 @@ class Config(object):
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TEMPLATES_AUTO_RELOAD = True
-    UPLOAD_FOLDER = '/home/alisson/www/projects/charts/uploads'
+    WTF_I18n_ENABLED = True
+    UPLOAD_FOLDER = os.path.join(projectPath, 'uploads')
     UPLOADS_DEFAULT_DEST = 'uploads'
-    UPLOADS_DEFAULT_URL = "http://192.168.104.37:5000/uploads"
+    UPLOADS_DEFAULT_URL = None
+    # UPLOADS_DEFAULT_URL = "http://192.168.104.37:5000/uploads"
 
 
 class DevelopmentConfig(Config):

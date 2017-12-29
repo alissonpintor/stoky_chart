@@ -195,3 +195,29 @@ def getProdutosEstoqueBaixo(tipoGiro=None, somenteZerados=False):
         produtos = produtos.filter(SaldoProduto.qtd_atual == 0)
     
     return produtos
+
+
+def getTotalVendasDoAnoPorMes(ano):
+    # Define as colunas que vao ser retornadas na consulta em StokyMetasView
+    query_total = (db.func.sum(MetasVendas.val_venda) + db.func.sum(MetasVendas.val_devolucao)).label('valor')
+    vendasAno = db.session.query(query_total)
+    
+    # Define os filtros da consulta
+    inicioAno = datetime.date(ano, 1, 1)
+    finalAno = datetime.date(ano, 12, 31)
+    filtro = MetasVendas.dt_movimento.between(inicioAno, finalAno)
+    vendasAno = vendasAno.filter(filtro)
+    vendasAno = vendasAno.group_by(db.func.month(MetasVendas.dt_movimento))
+
+    listaVendasAno = []
+    for mes in vendasAno:
+        listaVendasAno.append(mes.valor)
+    
+    if len(listaVendasAno) < 12:
+        count = 0
+        mesesFaltando = 12 - len(listaVendasAno)
+        while count < mesesFaltando:
+            listaVendasAno.append(0.0)
+            count += 1
+
+    return listaVendasAno

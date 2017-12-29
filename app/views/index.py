@@ -21,7 +21,8 @@ def index():
 
     if form.validate_on_submit():
         # Busca o Usuario pelo Username Informado
-        user = User.query.filter_by(userName=form.username.data).first()
+        username = form.username.data.lower()
+        user = User.query.filter_by(userName=username).first()
 
         # Verifica se o Usuário Existe e se a Senha está correta
         if user and user.verifyPassword(form.password.data):
@@ -37,6 +38,7 @@ def index():
             flash(message)
     
     content = {
+        'title': 'Tela de Login',
         'form': form
     }
     return render_template('login.html', **content)

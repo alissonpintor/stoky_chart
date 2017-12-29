@@ -34,3 +34,6 @@ class UpdatePasswordForm(FlaskForm):
 
     submit = SubmitField('Alterar')
 
+    class Meta:
+        locales = ['pt-BR', 'pt']
+

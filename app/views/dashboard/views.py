@@ -5,13 +5,13 @@ from pygal.style import CleanStyle, LightenStyle
 from pygal.style import Style
 
 from app.views.dashboard.charts import getChartStyle, getHorizontalBar
-from app.views.dashboard.charts import getHalfPie
+from app.views.dashboard.charts import getHalfPie, getChartVendasAnoMes
 
 from app.views.dashboard.data import getQtdadeNotas, getTotalVendido, getTotalCompraClientes
 from app.views.dashboard.data import getVendasVendedores, getValLucroPeriodo
 from app.views.dashboard.data import getValMeta, getTotalContasReceberPeriodo
 from app.views.dashboard.data import getTotalContasPagarPeriodo, getProdutosPorQtdSaida
-from app.views.dashboard.data import getProdutosEstoqueBaixo
+from app.views.dashboard.data import getProdutosEstoqueBaixo, getTotalVendasDoAnoPorMes
 
 import calendar
 import locale
@@ -24,6 +24,7 @@ dashboard = Blueprint('dashboard', __name__)
 @dashboard.route('/')
 @login_required
 def index():
+    # print(request.headers.get('User-Agent'))
     isMobile = (request.headers.get('User-Agent').find('Mobile') > 0)
     
     dataHoje = datetime.date.today()
@@ -102,6 +103,17 @@ def index():
     # Qtdade de Notas por periodo
     qtdNotasGauge = getHalfPie('Qtdade de Notas Faturadas', {'Qtdade': {'value': notasDia, 'max_value': 30000}})
 
+    # Valor Vendido por ano agrupado por mês
+    anoPassado = ano - 1
+    anoRetrasado = ano - 2    
+    vendasAnoAtual = getTotalVendasDoAnoPorMes(ano)
+    vendasAnoPassado = getTotalVendasDoAnoPorMes(anoPassado)
+    vendasAnoRetrasado = getTotalVendasDoAnoPorMes(anoRetrasado)
+    listaDeValores = [(str(ano), vendasAnoAtual), 
+                      (str(anoPassado), vendasAnoPassado),
+                      (str(anoRetrasado), vendasAnoRetrasado)]
+    comparativoAnual = getChartVendasAnoMes(listaDeValores, isMobile=isMobile)
+
     # Vendas Externas por periodo
     # VERIFICADO
     vendasExternas = getVendasVendedores(dataInicioMes, dataFimMes, tipo='E')
@@ -139,7 +151,8 @@ def index():
         'pagar': pagar,
         'top10Produtos': top10Produtos,
         'top10Clientes': top10Clientes,
-        'estoqueBaixo': estoqueBaixo
+        'estoqueBaixo': estoqueBaixo,
+        'comparativoAnual': comparativoAnual
     }
     return render_template('dashboard/main.html', **result)
 

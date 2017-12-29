@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, flash
+from flask import Blueprint, render_template, redirect, url_for, flash, current_app, request
 from flask_login import login_required
 from flask_uploads import UploadNotAllowed
 from app import db, imageSet
@@ -25,6 +25,7 @@ def index():
 def update(id=None):
     form = UpdateUserForm()
     user = User.query.filter_by(id=id).first()
+    
 
     if user and form.userId.data == 0:
         form.userId.data = user.id
@@ -40,15 +41,23 @@ def update(id=None):
         user.gender = form.userGender.data
 
         if form.userImage.data:
-            try:
-                image = imageSet.save(form.userImage.data)
-                user.image = imageSet.url(image)
-            except UploadNotAllowed:
-                message = {'type': 'warning', 'content': 'Somente Arquivos de Imagens são aceitas'}                
+            if current_app.config['UPLOADS_DEFAULT_URL'] is not None:
+                try:
+                    image = imageSet.save(form.userImage.data)
+                    user.image = imageSet.url(image)
+                except UploadNotAllowed:
+                    message = {'type': 'warning', 'content': 'Somente Arquivos de Imagens são aceitas'}                
+                    flash(message)
+
+                    return redirect(url_for('account.update', id=id))
+            else:
+                message = {'type': 'warning',
+                           'content': 'A URL Base do Sistema não está configurada. Configure-a para que as imagens possam ser salvas.'}
                 flash(message)
 
                 return redirect(url_for('account.update', id=id))
-
+            
+        # 'A URL Base do Sistema não está configurada. Configure-a para que as imagens possam ser salvas.'
         db.session.add(user)
         db.session.commit()
 
@@ -69,7 +78,7 @@ def update(id=None):
 def updatePassword(id):
     form = UpdatePasswordForm()
 
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
         user = User.query.filter_by(id=id).first()
         
         if user and user.verifyPassword(form.currentPassWord.data):
@@ -83,7 +92,7 @@ def updatePassword(id):
             return redirect(url_for('account.index'))
         
         else:
-            message = {'type': 'error', 'content': 'A Senha Atual está incorreta.'}
+            message = {'type': 'danger', 'content': 'A Senha Atual está incorreta.'}
             flash(message)
 
     content = {
