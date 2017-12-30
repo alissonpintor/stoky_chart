@@ -30,7 +30,7 @@ def getTotalVendido(dataInicial, dataFinal=None):
     else:
         vendas = vendas.filter(MetasVendas.dt_movimento == dataInicial).first()
 
-    return vendas.total if vendas else 0.0
+    return vendas.total if vendas.total else 0.0
 
 
 # VERIFICADO
@@ -74,7 +74,7 @@ def getValLucroPeriodo(dataInicial, dataFinal=None):
         lucroPeriodo = lucroPeriodo.filter(MetasVendas.dt_movimento == dataInicial)
     lucroPeriodo = lucroPeriodo.first()
 
-    if lucroPeriodo:
+    if lucroPeriodo.valor:
         lucroPeriodo = locale.currency(lucroPeriodo.valor, grouping=True)
     else:
         lucroPeriodo = 0.0
